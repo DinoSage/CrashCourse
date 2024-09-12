@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+//using Debug.Log;
 
 public class Movement : MonoBehaviour
 {
@@ -61,10 +62,17 @@ public class Movement : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter (Collision collision)
     {
         if (collision.gameObject.CompareTag("Platform")) {
             canJump = true;
+        }
+
+        if (collision.gameObject.CompareTag("Bounce")) {
+            canJump = true;
+            Vector3 newVelocity = new Vector3(0, 5*rb.velocity.y, 0);
+            rb.velocity = newVelocity;
+            Debug.Log(rb.velocity.y + "\n");
         }
     }
 }
