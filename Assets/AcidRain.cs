@@ -5,7 +5,7 @@ using UnityEngine;
 public class AcidRain : MonoBehaviour
 {
     [SerializeField]
-    GameObject acidPrefab;
+    GameObject acidPrefab; 
 
     [SerializeField]
     float radius;
